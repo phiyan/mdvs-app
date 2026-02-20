@@ -1,3 +1,5 @@
 .build/
-.swiftpm/
+# User-specific Xcode state (don't ignore the whole .swiftpm so shared schemes can be tracked)
+.swiftpm/xcode/xcuserdata/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
 *.xcuserstate
