@@ -1,9 +1,10 @@
-PRODUCTS := build/Build/Products/Release
-APP      := $(PRODUCTS)/MDVisualizer.app
-MACOS    := $(APP)/Contents/MacOS
-RES      := $(APP)/Contents/Resources
+PRODUCTS    := build/Build/Products/Release
+APP         := $(PRODUCTS)/MDVisualizer.app
+MACOS       := $(APP)/Contents/MacOS
+RES         := $(APP)/Contents/Resources
+INSTALL_DIR := /Applications
 
-.PHONY: app clean
+.PHONY: app install clean
 
 app:
 	xcodebuild \
@@ -22,6 +23,12 @@ app:
 	cp -R $(PRODUCTS)/MDVisualizer_MDVisualizer.bundle $(RES)/
 	codesign --deep --force --sign - $(APP)
 	@echo "App at $(APP)"
+
+install: app
+	mkdir -p $(INSTALL_DIR)
+	rm -rf $(INSTALL_DIR)/MDVisualizer.app
+	cp -R $(APP) $(INSTALL_DIR)/
+	@echo "Installed to $(INSTALL_DIR)/MDVisualizer.app"
 
 clean:
 	rm -rf build .build
