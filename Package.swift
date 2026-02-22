@@ -14,6 +14,11 @@ let package = Package(
             resources: [
                 .process("Resources")
             ]
+        ),
+        .testTarget(
+            name: "MDVisualizerTests",
+            dependencies: ["MDVisualizer"],
+            path: "Tests/MDVisualizerTests"
         )
     ]
 )

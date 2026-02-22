@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MDVisualizer</title>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:;">
     <link rel="stylesheet" href="style.css">
     <script src="marked.min.js"></script>
 </head>
@@ -23,20 +25,6 @@
             </div>
         </div>
     </div>
-    <script>
-        marked.setOptions({
-            gfm: true,
-            breaks: false
-        });
-
-        window.renderMarkdown = function(base64) {
-            var md = decodeURIComponent(escape(atob(base64)));
-            var html = marked.parse(md);
-            var content = document.getElementById('content');
-            content.innerHTML = html;
-            content.classList.remove('empty');
-            window.scrollTo(0, 0);
-        };
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
