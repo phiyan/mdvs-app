@@ -21,6 +21,7 @@ app:
 	cp $(PRODUCTS)/MDVisualizer $(MACOS)/MDVisualizer
 	cp Sources/MDVisualizer/Info.plist $(APP)/Contents/Info.plist
 	cp -R $(PRODUCTS)/MDVisualizer_MDVisualizer.bundle $(RES)/
+	cp $(PRODUCTS)/MDVisualizer_MDVisualizer.bundle/Contents/Resources/AppIcon.icns $(RES)/AppIcon.icns
 	codesign --deep --force --sign - $(APP)
 	@echo "App at $(APP)"
 
