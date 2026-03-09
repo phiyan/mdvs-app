@@ -4,3 +4,4 @@ build/
 .swiftpm/xcode/xcuserdata/
 .swiftpm/xcode/package.xcworkspace/xcuserdata/
 *.xcuserstate
+plans/
